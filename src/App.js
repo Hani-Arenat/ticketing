@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import HomePage from "./components/HomePage/HomePage";
+import Phone from "./components/Phone/Phone";
+import Select from "./components/Select/Select";
+import Ticket from "./components/Ticket/Ticket";
+
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className='pages-parent'>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route exact path="/advanced-phone">
+              <Phone />
+            </Route>
+            <Route exact path="/searchable-select">
+              <Select />
+            </Route>
+            <Route exact path="/ticket">
+              <Ticket />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
     </div>
   );
 }
